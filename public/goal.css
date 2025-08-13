@@ -21,6 +21,10 @@ nav {
     background-color: white;
     color:  #007BFF;
   }
+
+  .logout-btn {
+    margin-left: auto;
+  }
   
 .container {
   max-width: 800px;

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const mysql = require('mysql2');
@@ -11,17 +12,18 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(
   session({
-    secret: '1029',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
   })
 );
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Anshu1029m@n',
-  database: 'personal_finance'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+  
 });
 
 db.connect((err) => {
